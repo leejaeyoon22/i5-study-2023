@@ -26,4 +26,3 @@ public class Main {
         System.out.println(answer);
     }
 }
-//브루트 포스는 그냥 루프로 때려 맞추면 되는 것
