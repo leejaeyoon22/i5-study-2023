@@ -1,0 +1,44 @@
+import java.io.*;
+import java.util.StringTokenizer;
+public class Main {
+	static int a, b;
+	static int[] arr;
+	static boolean[] check;
+	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	static int index = 1;
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(bf.readLine());
+		a = Integer.parseInt(st.nextToken());
+		b = Integer.parseInt(st.nextToken());
+		arr = new int[b];
+		check = new boolean[a + 1];
+		
+		bta(0);
+		bw.flush();
+		bw.close();
+	}
+
+	public static void bta(int index) throws IOException {
+		if (index == b) {
+			for (int i = 0; i < b; i++) {
+				bw.write(arr[i] + " "); 
+				}
+				bw.write("\n");
+				return;
+		}
+
+				for (int i = 1; i <= a; i++) {
+					if(!check[i]) {
+						arr[index] = i;
+						check[i] = true;
+						bta(index + 1);
+						for (int j = i + 1; j <= a; j++)
+						{
+						check[j] = false;
+ 						}
+					}
+				}
+	}
+}
